@@ -1,0 +1,31 @@
+#!/usr/bin/perl -w
+
+$fill = " ";
+if($ARGV[0]=~ /\D+/) {
+  print "Enter a number!\n";
+  exit 0;
+}
+elsif(!($ARGV[0] % 2)) {
+  $ARGV[0]--;
+  print "your number has been demoted to $ARGV[0] because it is an even number.\n";
+}
+for($i=0; ($ARGV[0]-3)/2+1 >= $i; $i++) {
+  for($j=0; ($ARGV[0]-3)/2-$i >= $j; $j++) {
+    print " ";
+  }
+if($i==0) {
+  print "*\n";
+}
+else {
+  if($i == ($ARGV[0]-3)/2+1) {
+    $fill = "*";
+  }
+  print "*";
+  for($j=0; 2*$i-2 >= $j; $j++) {
+    print $fill;
+  }
+  print "*\n";
+}
+}
+
+    
