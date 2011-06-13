@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
 for(@ARGV) {
-  if($_ eq '--fill') {
+  if($_ eq '--fill' or $_ eq '-f') {
     $fill = '*';
   } else {
     $size = $_;
