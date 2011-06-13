@@ -1,0 +1,7 @@
+name: triangle
+
+usage: triangle [number] [options]
+
+options:
+	-f, --fill      = fill triangle with set character
+	-c, --character = set character (default *)
