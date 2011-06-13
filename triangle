@@ -45,17 +45,17 @@ for($i=0; ($size-3)/2+1 >= $i; $i++) {
   for($j=0; ($size-3)/2-$i >= $j; $j++) {
     print " ";
   }
-if($i==0) {
-  print "$char\n";
-}
-else {
-  if($i == ($size-3)/2+1) {
-    $fill = $char;
+  if($i==0) {
+    print "$char\n";
   }
-  print $char;
-  for($j=0; 2*$i-2 >= $j; $j++) {
-    print $fill;
+  else {
+    if($i == ($size-3)/2+1) {
+      $fill = $char;
+    }
+    print $char;
+    for($j=0; 2*$i-2 >= $j; $j++) {
+      print $fill;
+    }
+    print "$char\n";
   }
-  print "$char\n";
-}
 }
