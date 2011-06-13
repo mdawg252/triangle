@@ -3,6 +3,14 @@
 $char = '*';
 $fill = ' ';
 
+if($ARGC < 1) {
+  print "Usage: $0 [number] [options]\n",
+        "Options:\n",
+        "\t-f, --fill = fill triangle with set character\n",
+        "\t-c, --character = set character (default *)\n";
+  exit 0;
+}
+
 for(@ARGV) {
   chomp $_;
   if($charopt) {
@@ -12,7 +20,7 @@ for(@ARGV) {
         $fill = $char;
       }
     } else {
-      print STDERR "error: charcter can only be one character long";
+      print STDERR "error: charcter can only be one character long\n";
       exit 1;
     }
     $charopt=0;
