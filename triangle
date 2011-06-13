@@ -1,5 +1,9 @@
 #!/usr/bin/perl -w
 
+if($ARGV[1] eq '--fill') {
+  $fill = '*';
+}
+
 $fill = " ";
 if($ARGV[0]=~ /\D+/) {
   print "Enter a number!\n";
