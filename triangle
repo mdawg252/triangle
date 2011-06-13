@@ -1,27 +1,31 @@
 #!/usr/bin/perl -w
 
-if($ARGV[1] eq '--fill') {
-  $fill = '*';
+for(@ARGV) {
+  if($_ eq '--fill') {
+    $fill = '*';
+  } else {
+    $size = $_;
+  }
 }
 
 $fill = " ";
-if($ARGV[0]=~ /\D+/) {
+if($size =~ /\D+/) {
   print "Enter a number!\n";
   exit 0;
 }
-elsif(!($ARGV[0] % 2)) {
-  $ARGV[0]--;
-  print "your number has been demoted to $ARGV[0] because it is an even number.\n";
+elsif(!($size % 2)) {
+  $size--;
+  print "your number has been demoted to $size because it is an even number.\n";
 }
-for($i=0; ($ARGV[0]-3)/2+1 >= $i; $i++) {
-  for($j=0; ($ARGV[0]-3)/2-$i >= $j; $j++) {
+for($i=0; ($size-3)/2+1 >= $i; $i++) {
+  for($j=0; ($size-3)/2-$i >= $j; $j++) {
     print " ";
   }
 if($i==0) {
   print "*\n";
 }
 else {
-  if($i == ($ARGV[0]-3)/2+1) {
+  if($i == ($size-3)/2+1) {
     $fill = "*";
   }
   print "*";
