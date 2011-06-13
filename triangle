@@ -1,14 +1,30 @@
 #!/usr/bin/perl -w
 
+$char = '*';
+$fill = ' ';
+
 for(@ARGV) {
-  if($_ eq '--fill' or $_ eq '-f') {
-    $fill = '*';
+  chomp $_;
+  if($charopt) {
+    if(/^.$/) {
+      $char=$_;
+      if($fill ne ' ') {
+        $fill = $char;
+      }
+    } else {
+      print STDERR "error: charcter can only be one character long";
+      exit 1;
+    }
+    $charopt=0;
+  } elsif(/^-c/ or /^--character/) {
+    $charopt=1;
+  } elsif(/^-f/ or /^--fill/) {
+    $fill = $char;
   } else {
     $size = $_;
   }
 }
 
-$fill = " ";
 if($size =~ /\D+/) {
   print "Enter a number!\n";
   exit 0;
@@ -22,18 +38,16 @@ for($i=0; ($size-3)/2+1 >= $i; $i++) {
     print " ";
   }
 if($i==0) {
-  print "*\n";
+  print "$char\n";
 }
 else {
   if($i == ($size-3)/2+1) {
-    $fill = "*";
+    $fill = $char;
   }
-  print "*";
+  print $char;
   for($j=0; 2*$i-2 >= $j; $j++) {
     print $fill;
   }
-  print "*\n";
+  print "$char\n";
 }
 }
-
-    
