@@ -6,8 +6,8 @@ $fill = ' ';
 if($ARGC < 1) {
   print "Usage: $0 [number] [options]\n",
         "Options:\n",
-        "\t-f, --fill      = fill triangle with set character\n",
-        "\t-c, --character = set character (default *)\n";
+        "\t-f, --fill                              = fill triangle with set character\n",
+        "\t-c [character], --character [character] = set character (default *)\n";
   exit 0;
 }
 
