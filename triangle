@@ -5,7 +5,7 @@ $fill = ' ';
 my $triangle_line;
 my $down;
 my @triangle;
-$down=1;
+$down=0;
 
 sub usage {
   print "Usage: $0 [number] [options]\n",
