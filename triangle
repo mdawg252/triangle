@@ -18,6 +18,11 @@ for(@ARGV) {
       if($fill ne ' ') {
         $fill = $char;
       }
+    } elsif(/^rand(om)?$/) {
+      $char = chr(rand(93)+33);
+      if($fill ne ' ') {
+        $fill = $char;
+      }
     } else {
       print STDERR "error: charcter can only be one character long\n";
       exit 1;
