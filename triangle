@@ -2,12 +2,17 @@
 
 $char = '*';
 $fill = ' ';
+my $triangle_line;
+my $down;
+my @triangle;
+$down=1;
 
 sub usage {
   print "Usage: $0 [number] [options]\n",
         "Options:\n",
         "\t-f, --fill = fill triangle with set character\n",
-        "\t-c [character], --character [character] = set character (default *)\n";
+        "\t-c [character], --character [character] = set character (default *)\n",
+        "\t-d, --down = makes triangle point down\n";
 }
 
 for(@ARGV) {
@@ -28,10 +33,12 @@ for(@ARGV) {
       exit 1;
     }
     $charopt=0;
-  } elsif(/^-c/ or /^--character/) {
+  } elsif(/^-c$|^--character$/) {
     $charopt=1;
-  } elsif(/^-f/ or /^--fill/) {
+  } elsif(/^-f$|^--fill$/) {
     $fill = $char;
+  } elsif(/^-d$|^--down$/) {
+    $down=1;
   } else {
     $size = $_;
   }
@@ -51,20 +58,31 @@ elsif(!($size % 2)) {
   print "your number has been demoted to $size because it is an even number.\n";
 }
 for($i=0; ($size-3)/2+1 >= $i; $i++) {
+  $triangle_line=undef;
   for($j=0; ($size-3)/2-$i >= $j; $j++) {
-    print " ";
+    $triangle_line .= " ";
   }
   if($i==0) {
-    print "$char\n";
+    $triangle_line .= "$char";
   }
   else {
     if($i == ($size-3)/2+1) {
       $fill = $char;
     }
-    print $char;
+    $triangle_line .= $char;
     for($j=0; 2*$i-2 >= $j; $j++) {
-      print $fill;
+      $triangle_line .= $fill;
     }
-    print "$char\n";
+    $triangle_line .= "$char";
   }
+  push @triangle, $triangle_line;
 }
+
+$, = "\n";
+if($down) {
+  print reverse @triangle;
+}
+else {
+  print @triangle;
+}
+print "\n";
