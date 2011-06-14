@@ -39,6 +39,9 @@ for(@ARGV) {
     $fill = $char;
   } elsif(/^-d$|^--down$/) {
     $down=1;
+  } elsif(/^-h$|^--help$/) {
+    &usage;
+    exit 0;
   } else {
     $size = $_;
   }
