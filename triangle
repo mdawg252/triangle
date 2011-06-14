@@ -3,12 +3,11 @@
 $char = '*';
 $fill = ' ';
 
-if($ARGC < 1) {
+sub usage {
   print "Usage: $0 [number] [options]\n",
         "Options:\n",
         "\t-f, --fill = fill triangle with set character\n",
         "\t-c [character], --character [character] = set character (default *)\n";
-  exit 0;
 }
 
 for(@ARGV) {
@@ -31,6 +30,11 @@ for(@ARGV) {
   } else {
     $size = $_;
   }
+}
+
+if($size == undef) {
+  &usage;
+  exit 0;
 }
 
 if($size =~ /\D+/) {
