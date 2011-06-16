@@ -12,7 +12,8 @@ sub usage {
         "Options:\n",
         "\t-f, --fill = fill triangle with set character\n",
         "\t-c [character], --character [character] = set character (default *)\n",
-        "\t-d, --down = makes triangle point down\n";
+        "\t-d, --down = makes triangle point down\n",
+        "\t-h, --help = display this\n";
 }
 
 for(@ARGV) {
